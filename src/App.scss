@@ -1,0 +1,18 @@
+@forward "./styles/base";
+@forward "./styles/theme";
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  text-size-adjust: 100%;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  overflow-anchor: none;
+}
+
+.app {
+  min-height: 100vh;
+}
