@@ -4,11 +4,6 @@ import { RouterLink } from 'vue-router'
 
 <template>
   <header>
-    <img
-      alt="Vue logo" class="logo" height="125" src="@/assets/logo.svg"
-      width="125"
-    >
-
     <div class="wrapper">
       <nav>
         <RouterLink to="/">
@@ -18,13 +13,5 @@ import { RouterLink } from 'vue-router'
     </div>
   </header>
 
-  <!--  <RouterView /> -->
-
-  <label for="tac">
-    <input id="tac" name="terms-and-conditions" type="checkbox">
-    I agree to the Terms and Conditions.
-  </label>
-  <p><a href="tac.html">Read our Terms and Conditions</a>.</p>
+  <RouterView />
 </template>
-
-<style lang="scss" scoped src="./App.scss" />
