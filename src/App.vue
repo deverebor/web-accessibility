@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
 </script>
 
@@ -24,7 +24,13 @@ import HelloWorld from './components/HelloWorld.vue'
     </div>
   </header>
 
-  <RouterView />
+  <!--  <RouterView /> -->
+
+  <label for="tac">
+    <input id="tac" name="terms-and-conditions" type="checkbox">
+    I agree to the Terms and Conditions.
+  </label>
+  <p><a href="tac.html">Read our Terms and Conditions</a>.</p>
 </template>
 
 <style lang="scss" scoped src="./App.scss" />
