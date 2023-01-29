@@ -1,5 +1,6 @@
-@forward "./styles/base";
-@forward "./styles/theme";
+html {
+  font-size: 62.5%;
+}
 
 * {
   -webkit-font-smoothing: antialiased;
@@ -11,4 +12,5 @@
 
 body {
   overflow-anchor: none;
+  font-size: 1.6rem;
 }
