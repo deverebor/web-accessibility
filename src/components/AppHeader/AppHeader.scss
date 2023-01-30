@@ -1,0 +1,41 @@
+%show-and-hide-submenu {
+  &--hide {
+    display: none;
+  }
+
+  &--show {
+    display: block;
+  }
+}
+
+.app-header {
+  display: flex;
+
+  &__nav {
+    &__menu {
+      display: flex;
+    }
+
+    &__sub-menu {
+      &__features {
+        &--hide {
+          @extend %show-and-hide-submenu--hide;
+        }
+
+        &--show {
+          @extend %show-and-hide-submenu--show;
+        }
+      }
+
+      &__company {
+        &--hide {
+          @extend %show-and-hide-submenu--hide;
+        }
+
+        &--show {
+          @extend %show-and-hide-submenu--show;
+        }
+      }
+    }
+  }
+}
