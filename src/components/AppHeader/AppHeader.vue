@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
 import { ref } from 'vue'
-import appLogo from '@/assets/images/logo.svg'
+import { ArrowUpIcon, CalendarIcon, LogoImage, PlanningIcon, RemindersIcon, TodoIcon } from '@/helper/files'
 
 /*
   @note: podemos incrementar a forma com que utilizamos esse componente de dropdown, fazendo uma abstração com pops que recebe os elementos e subelementos do menu
@@ -29,66 +29,77 @@ function handleHideSubMenu(dynamicClass: string, subMenuName?: string): string {
       <ul class="app-header__nav__menu">
         <li class="app-header__nav__menu-item">
           <RouterLink to="/">
-            <img :src="appLogo" alt="snap logo">
+            <img :src="LogoImage" alt="snap logo">
           </RouterLink>
         </li>
-        <li aria-expanded="true" class="app-header__nav__menu-item">
-          Features
-          <button
-            aria-expanded="false"
-            @mouseover="handleShowSubMenu
-              ('app-header__nav__sub-menu__features--show')"
+        <li
+          tabindex="0"
+          aria-expanded="true"
+          class="app-header__nav__menu-item"
+          @mouseover="handleShowSubMenu
+            ('app-header__nav__sub-menu__features--show')"
+          @focus="handleShowSubMenu
+            ('app-header__nav__sub-menu__features--show')"
+          @blur="handleHideSubMenu('app-header__nav__sub-menu__features--hide')"
+        >
+          <span class="app-header__span">
+            Features
+            <img class="app-header__span__arrow-icon" :src="ArrowUpIcon" alt="">
+          </span>
+          <ul
+            :class="featureSubMenuClass"
             @mouseleave="handleHideSubMenu('app-header__nav__sub-menu__features--hide')"
           >
-            oi
-          </button>
-          <ul
-            class="app-header__nav__sub-menu__features--hide"
-            :class="featureSubMenuClass"
-          >
             <li class="app-header__nav__sub-menu__features-item">
-              Todo List
+              <img class="app-header__nav__sub-menu__features__icon" :src="TodoIcon" alt="">
+              <a class="app-header__nav__link" arai-label="Todo List page" href="#">Todo List</a>
             </li>
             <li class="app-header__nav__sub-menu__features-item">
-              Calendar
+              <img class="app-header__nav__sub-menu__features__icon" :src="CalendarIcon" alt="">
+              <a class="app-header__nav__link" arai-label="Calendar page" href="#">Calendar</a>
             </li>
             <li class="app-header__nav__sub-menu__features-item">
-              Reminders
+              <img class="app-header__nav__sub-menu__features__icon" :src="RemindersIcon" alt="">
+              <a class="app-header__nav__link" aria-label="Reminders Page" href="#">Reminders</a>
             </li>
             <li class="app-header__nav__sub-menu__features-item">
-              Planing
+              <img class="app-header__nav__sub-menu__features__icon" :src="PlanningIcon" alt="">
+              <a class="app-header__nav__link" aria-label="Planing page" href="#">Planing</a>
             </li>
           </ul>
         </li>
-        <li aria-expanded="true" class="app-header__nav__menu-item">
-          Company
-          <button
-            aria-expanded="false"
-            @mouseover="handleShowSubMenu('app-header__nav__sub-menu__company--show', 'company')"
-            @mouseleave="handleHideSubMenu('app-header__nav__sub-menu__company--hide', 'company')"
-          >
-            oi
-          </button>
+        <li
+          tabindex="0"
+          aria-expanded="true"
+          class="app-header__nav__menu-item"
+          @mouseover.stop="handleShowSubMenu('app-header__nav__sub-menu__company--show', 'company')"
+          @focus="handleShowSubMenu('app-header__nav__sub-menu__company--show', 'company')"
+          @blur="handleHideSubMenu('app-header__nav__sub-menu__company--hide', 'company')"
+        >
+          <span class="app-header__span">
+            Company
+            <img class="app-header__span__arrow-icon" :src="ArrowUpIcon" alt="">
+          </span>
           <ul
-            class="app-header__nav__sub-menu__company--hide"
             :class="companySubMenuClass"
+            @mouseleave.stop="handleHideSubMenu('app-header__nav__sub-menu__company--hide', 'company')"
           >
             <li class="app-header__nav__sub-menu__company--item">
-              History
+              <a class="app-header__nav__link" aria-label="History of company page" href="#">History</a>
             </li>
             <li class="app-header__nav__sub-menu__company--item">
-              Our Team
+              <a class="app-header__nav__link" aria-label="Our Team page" href="#">Our Team</a>
             </li>
             <li class="app-header__nav__sub-menu__company--item">
-              Blog
+              <a class="app-header__nav__link" aria-label="Blog page" href="#">Blog</a>
             </li>
           </ul>
         </li>
         <li class="app-header__nav__menu-item">
-          Careers
+          <a class="app-header__nav__link" aria-label="Careers page" href="#">Careers</a>
         </li>
         <li class="app-header__nav__menu-item">
-          About
+          <a class="app-header__nav__link" aria-label="About page" href="#">About</a>
         </li>
       </ul>
     </nav>
@@ -96,12 +107,12 @@ function handleHideSubMenu(dynamicClass: string, subMenuName?: string): string {
     <nav class="app-header__nav">
       <ul class="app-header__nav__menu">
         <li class="app-header__nav__menu-item">
-          <a class="app-header__nav__login" href="#">
+          <a aria-label="Login page" class="app-header__nav__login" href="#">
             Login
           </a>
         </li>
         <li class="app-header__nav__menu-item">
-          <a class="app-header__nav__register" href="#">
+          <a aria-label="Register page" class="app-header__nav__register" href="#">
             Register
           </a>
         </li>

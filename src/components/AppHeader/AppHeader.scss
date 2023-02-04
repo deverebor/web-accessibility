@@ -1,3 +1,5 @@
+@use "src/styles/_styles.scss" as s;
+
 %show-and-hide-submenu {
   &--hide {
     display: none;
@@ -5,37 +7,125 @@
 
   &--show {
     display: block;
+    width: auto;
+    height: auto;
+  }
+}
+
+%base-link-style {
+  text-decoration: none;
+  color: s.$gray-500;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    color: s.$brand-secondary;
   }
 }
 
 .app-header {
   display: flex;
+  gap: 50vw;
+  align-items: center;
+  justify-content: center;
+  padding-block-start: 4rem;
+
+  &__span {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+
+    &__arrow-icon {
+      padding: 0;
+      width: 12px;
+      height: 8px;
+      transition: all 0.3s ease-in-out;
+    }
+  }
 
   &__nav {
     &__menu {
       display: flex;
+      gap: 2.4rem;
+
+      &-item {
+        font-size: 1.6rem;
+        color: s.$gray-500;
+        width: auto;
+        transition: all 0.3s ease-in-out;
+
+        & [class~="app-header__nav__register"] {
+          padding-inline: 1.6rem;
+          padding-block: 0.8rem;
+          border-radius: 12px;
+          border: 1px solid s.$brand-secondary;
+        }
+
+        &:first-child {
+          padding-inline-end: 2.4rem;
+        }
+
+        &:hover {
+          color: s.$brand-secondary;
+        }
+
+        &:not(:first-child) {
+          &:hover {
+            .app-header__span__arrow-icon {
+              transform: rotateX(180deg);
+              transition: all 0.3s ease-in-out;
+              width: 12px;
+              height: 8px;
+            }
+          }
+        }
+      }
     }
 
     &__sub-menu {
-      &__features {
+      &__features,
+      &__company {
+        &--show {
+          @extend %show-and-hide-submenu--show;
+          font-size: 1.8rem;
+          background-color: s.$white;
+          box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+          margin-block-start: 2.4rem;
+          position: absolute;
+          align-items: flex-start;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          gap: 1.6rem;
+          border-radius: 8px;
+          padding: 3.2rem;
+        }
+
         &--hide {
           @extend %show-and-hide-submenu--hide;
         }
+      }
 
+      &__features {
         &--show {
-          @extend %show-and-hide-submenu--show;
+          left: 18rem;
+        }
+
+        &__icon {
+          margin-inline-end: 1.6rem;
         }
       }
 
       &__company {
-        &--hide {
-          @extend %show-and-hide-submenu--hide;
-        }
-
         &--show {
-          @extend %show-and-hide-submenu--show;
+          left: 36rem;
         }
       }
+    }
+
+    &__link,
+    &__register,
+    &__login {
+      @extend %base-link-style;
     }
   }
 }
