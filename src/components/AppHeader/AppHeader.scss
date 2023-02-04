@@ -57,7 +57,11 @@
           padding-inline: 1.6rem;
           padding-block: 0.8rem;
           border-radius: 12px;
-          border: 1px solid s.$brand-secondary;
+          border: 1px solid s.$gray-500;
+
+          &:hover {
+            border-color: s.$brand-secondary;
+          }
         }
 
         &:first-child {
