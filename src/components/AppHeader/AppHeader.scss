@@ -72,14 +72,12 @@
           color: s.$brand-secondary;
         }
 
-        &:not(:first-child) {
-          &:hover {
-            .app-header__span__arrow-icon {
-              transform: rotateX(180deg);
-              transition: all 0.3s ease-in-out;
-              width: 12px;
-              height: 8px;
-            }
+        &:hover {
+          .app-header__span__arrow-icon {
+            transform: rotateX(180deg);
+            transition: all 0.3s ease-in-out;
+            width: 12px;
+            height: 8px;
           }
         }
       }
