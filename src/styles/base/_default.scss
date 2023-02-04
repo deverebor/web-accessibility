@@ -1,3 +1,5 @@
+@use "../theme" as s;
+
 html {
   font-size: 62.5%;
 }
@@ -7,10 +9,11 @@ html {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   text-size-adjust: 100%;
-  font-family: 'Epilogue', sans-serif;
+  font-family: "Epilogue", sans-serif;
 }
 
 body {
   overflow-anchor: none;
   font-size: 1.6rem;
+  background-color: s.$brand-primary;
 }
