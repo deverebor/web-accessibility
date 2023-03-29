@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import {
-ArrowUpIcon,
-CalendarIcon,
-LogoImage,
-PlanningIcon,
-RemindersIcon,
-TodoIcon,
+  ArrowUpIcon,
+  CalendarIcon,
+  LogoImage,
+  PlanningIcon,
+  RemindersIcon,
+  TodoIcon,
 } from "@/helper/files";
 import { ref } from "vue";
 import { RouterLink } from "vue-router";

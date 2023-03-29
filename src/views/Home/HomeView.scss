@@ -1,0 +1,54 @@
+@use "src/styles/_styles.scss" as s;
+
+.home {
+  display: flex;
+  padding-top: 10rem;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  &__section {
+    padding-inline-end: 10rem;
+    
+    &-title {
+      font-size: 8rem;
+      padding-block-end: 4rem;
+    }
+    
+    &-paragraph {
+      font-size: 1.8rem;
+      color: s.$gray-500;
+      padding-block-end: 6rem;
+    }
+    &-anchor {
+      text-decoration: none;
+      color: s.$gray-500;
+      transition: border-color 0.3s ease-in-out;
+      padding-inline: 1.8rem;
+      padding-block: 1.6rem;
+      border-radius: 12px;
+      border: 1px solid s.$gray-500;
+
+      &:hover {
+        border-color: s.$brand-secondary;
+        color: s.$brand-secondary;
+      }
+    }
+  }
+
+  &__hero {
+    width: 30%;
+    height: 30%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  &__footer {
+    display: flex;
+    gap: 2.4rem;
+    padding-block: 10rem;
+    align-items: center;
+    justify-content: flex-start;
+  }
+}
